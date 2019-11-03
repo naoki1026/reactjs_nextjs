@@ -14,14 +14,24 @@ class App extends Component {
     borderBottom:"2px solid #900"
   }
 
+  btnStyle = {
+    fontSize: '20pt',
+    padding: '0px 10px'
+  }
+
 
   constructor(props){
     super(props);
     this.state = {
-      msg:'Hello Component.',
+      msg:'Hello.',
     };
-  }
 
+    let timer = setInterval(() => {
+      this.setState((state) => ({
+        msg: state.msg + '!'
+      }));
+    }, 1000);
+  }
 
   render(){
     return <div>
