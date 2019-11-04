@@ -13,34 +13,34 @@ class App extends Component {
     padding: "5px",
     borderBottom:"2px solid #900"
   }
-
   btnStyle = {
-    fontSize: '20pt',
-    padding: '0px 10px'
+    fontSize:"20pt",
+    padding:"0px 10px"
   }
-
 
   constructor(props){
     super(props);
     this.state = {
-      msg:'Hello.',
+      counter: 0,
+      msg: 'count start!',
     };
+    this.doAction = this.doAction.bind(this);
+  }
 
-    let timer = setInterval(() => {
-      this.setState((state) => ({
-        msg: state.msg + '!'
-      }));
-    }, 1000);
+  doAction(e){
+    this.setState((state) => ({
+      counter: state.counter + 1,
+      msg: 'count:' + state.counter
+    }));
   }
 
   render(){
     return <div>
       <h1>React</h1>
-      <p style={this.msgStyle}>{this.state.msg}</p>
-      <p style={this.msgStyle}>{this.props.msg}</p>
+      <p　style={this.msgStyle}>{this.state.msg}</p>
+      <button style={this.btnStyle} onClick={this.doAction}>Click</button>
     </div>;
   }
 }
-
 
 export default App;
